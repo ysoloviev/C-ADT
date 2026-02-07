@@ -19,5 +19,11 @@ int main() {
     queue_pop(&q);
     // printf("%d %p\n", *queue_top(&q), queue_top(&q));
 
+    queue_add(&q, 1);
+    queue_add(&q, 2);
+    queue_add(&q, 3);
+
+    queue_clean(&q);
+
     return 0;
 }
