@@ -7,10 +7,10 @@ void queue_init(queue *q_pt) {
     q_pt->size = 0;
 }
 
-void queue_add(queue *q_pt, Item item) {
+const Item* queue_add(queue *q_pt, Item item) {
     node *node_pt = (node*)malloc(sizeof(node));
     if (node_pt == NULL) { // Error with memory allocation
-        return;
+        return NULL;
     }
     node_pt->item = item;
     if (q_pt->begin != NULL) {
@@ -21,6 +21,7 @@ void queue_add(queue *q_pt, Item item) {
         q_pt->end = node_pt;
     }
     q_pt->size++;
+    return &(q_pt->end->item);
 }
 
 const Item* queue_top(queue *q_pt) {

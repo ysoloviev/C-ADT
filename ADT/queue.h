@@ -25,8 +25,8 @@ void queue_init(queue *q_pt);
 
 /* operation: add item to queue */
 /* precondition: initializated queue and item for adding */
-/* postcondition: item appends on the end of queue */
-void queue_add(queue *q_pt, Item item);
+/* postcondition: item appends on the end of queue and function returns pointer of item if allocation is successfull */
+const Item * queue_add(queue *q_pt, Item item);
 
 /* operation: return the top element of queue */
 /* precondition: initialized queue */
