@@ -21,6 +21,7 @@ const Item* queue_add(queue * const q_pt, Item item) {
         q_pt->end = node_pt;
     }
     q_pt->size++;
+    q_pt->end->next = NULL;
     return &(q_pt->end->item);
 }
 
@@ -50,11 +51,14 @@ size_t queue_size(queue * const q_pt) {
 
 void queue_clean(queue * const q_pt) {
     node *begin = q_pt->begin;
-    while (begin != q_pt->end) {
+    while (1) {
         node *next = begin->next;
         free(begin);
+        q_pt->size--;
         begin = next;
         if (begin == NULL)
-            return;
+            break;
     }
+    q_pt->begin = NULL;
+    q_pt->end = NULL;
 }
