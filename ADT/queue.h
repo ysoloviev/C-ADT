@@ -11,8 +11,9 @@ typedef struct Node {
 } node;
 
 typedef struct {
-    Node *begin;
-    Node *end;
+    node *begin;
+    node *end;
+    size_t size;
 } queue;
 
 /* functions prototypes */
